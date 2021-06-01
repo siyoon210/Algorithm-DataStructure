@@ -4,20 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class Solution {
     public String interpret(String command) {
-        var sb = new StringBuilder();
-        for (var i = 0; i < command.length(); ) {
-            if (command.charAt(i) == 'G') {
-                sb.append('G');
-                i++;
-            } else if (command.charAt(i) == '(' && command.charAt(i + 1) == ')') {
-                sb.append('o');
-                i += 2;
-            } else if (command.charAt(i) == '('&& command.charAt(i + 1) == 'a') {
-                sb.append("al");
-                i += 4;
-            }
-        }
-        return sb.toString();
+        return command.replace("(al)", "al").replace("()", "o");
     }
 }
 
